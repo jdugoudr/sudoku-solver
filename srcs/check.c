@@ -27,6 +27,7 @@ static int	ft_check_col(const s_map map[81], int i, int value)
 {
 	int ii;
 	ii = 0;
+	while (ii < 9)
 	{
 		if(map[(ii*9) + (i%9)].value == value)
 			return 1;
