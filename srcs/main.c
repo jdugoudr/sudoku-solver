@@ -67,6 +67,7 @@ int	main(int argc, char **argv)
 	
 	ft_resolve(map);
 	
+	ft_putstr("Solution :\n");
 	ft_printMap(map);
 	ft_putchar('\n');
 	return 0;
@@ -79,11 +80,19 @@ void	ft_printMap(s_map map[81])
 	i = 0;
 	while(i < 81)
 	{
-		ft_putchar(map[i].value + 48);
+		if (map[i].value == 0)
+			ft_putchar('.');
+		else
+			ft_putchar(map[i].value + 48);
 		if((i%9) == 8)
 			ft_putchar('\n');
 		else
 			ft_putchar(' ');
 		i += 1;
+		if (((i-1) % 9) < 8 && (i%3) == 0)
+			ft_putstr("| ");
+		if ((i % 27) == 0 && i < 81)
+			ft_putstr("----------------------\n");
+
 	}
 }
